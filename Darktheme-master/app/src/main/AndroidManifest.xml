@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Darktheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Filter set -->
+        <service android:name=".fragments.OverlayService" />
+
+        <!-- Broadcast -->
+        <receiver android:name=".broadcast.NotificationBroadcast"/>
+        <receiver android:name=".broadcast.AutoChangeDark" />
+        <receiver android:name=".broadcast.AutoChangeLight" />
+
+        <!-- Widget set -->
+        <activity
+            android:name=".widgets.DarkTheme"
+            android:configChanges="uiMode"
+            android:noHistory="true" />
+
+        <activity
+            android:name=".widgets.LightTheme"
+            android:configChanges="uiMode"
+            android:noHistory="true" />
+
+        <!-- Widgets -->
+        <receiver
+            android:name=".widgets.ChangerTheme"
+            android:exported="true"
+            android:label="@string/ChangerTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/changer_theme_info" />
+        </receiver>
+        <receiver
+            android:name=".widgets.DarkModeShortcut"
+            android:exported="true"
+            android:label="@string/DarkModeShortcut">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/dark_mode_shortcut_info" />
+        </receiver>
+        <receiver
+            android:name=".widgets.ChangeToDark"
+            android:exported="true"
+            android:label="@string/change_to_dark_mode">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/change_to_dark_info" />
+        </receiver>
+        <receiver
+            android:name=".widgets.ChangeToLight"
+            android:exported="true"
+            android:label="@string/change_to_light_mode">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/changeto_light_info" />
+        </receiver>
+
+        <!-- Tiles -->
+        <service
+            android:name=".tiles.TileMoon"
+            android:exported="true"
+            android:icon="@drawable/ic_moon"
+            android:label="@string/change_to_dark_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".tiles.TileSun"
+            android:exported="true"
+            android:icon="@drawable/ic_sun"
+            android:label="@string/change_to_light_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".tiles.Tile"
+            android:exported="true"
+            android:icon="@drawable/ic_app"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+    </application>
+</manifest>

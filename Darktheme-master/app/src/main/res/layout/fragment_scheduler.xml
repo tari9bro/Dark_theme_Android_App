@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:background="@color/design4"
+    android:gravity="center"
+    tools:context=".fragments.SchedulerFragment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/layout_text_background" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/llOn"
+        android:layout_alignBottom="@+id/llOn"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-16dp"
+        android:background="@drawable/layout_text_time" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/llOff"
+        android:layout_alignBottom="@+id/llOff"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-16dp"
+        android:background="@drawable/layout_text_time" />
+
+    <View
+        android:id="@+id/vCenter"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/llOn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/vCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_text"
+            android:padding="10dp"
+            android:text="@string/on_time"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:fontFamily="@font/ubuntu" />
+
+        <Button
+            android:id="@+id/btTimeDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/time_null"
+            android:textColor="@color/design6"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibTimeDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@string/on_time"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_on" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llOff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vCenter"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_text"
+            android:fontFamily="@font/ubuntu"
+            android:padding="10dp"
+            android:text="@string/off_time"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btTimeLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/time_null"
+            android:textColor="@color/design6"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/ibTimeLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:contentDescription="@string/off_time"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_on" />
+    </LinearLayout>
+
+</RelativeLayout>
