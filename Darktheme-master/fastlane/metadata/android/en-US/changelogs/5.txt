@@ -1,3 +1,0 @@
--Available on GitHub
--Added Bottom Navigation Bar
--Minor bugs fixed

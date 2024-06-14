@@ -1,3 +1,0 @@
--K dispozici na GitHubu
--Přidán spodní navigační panel
--Oprava drobných chyb
